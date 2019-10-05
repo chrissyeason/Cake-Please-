@@ -1,8 +1,7 @@
 # Cake-Please
 
 Navigation
-  - Tutorials
-      • Display youtube videos
+  - Tutorials (display youtube videos)
   - Recipes
   - Inspiration (photos)(dropdown menu)
       • Wedding
