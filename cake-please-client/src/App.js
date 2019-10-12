@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import './App.css';
 import Home from './components/Home/Home';
 import Navigation from './components/Navigation/navigation';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 import Recipes from './components/Recipes/Recipes';
 
 class App extends Component {
@@ -22,7 +24,7 @@ class App extends Component {
         const parsedResponse = await recipes.json();
           console.log("this is parsedResponse", parsedResponse)
           this.setState({
-              recipes: parsedResponse.data
+              recipes: parsedResponse
           })
             console.log(recipes)
   }
@@ -78,9 +80,17 @@ handleRegistration = async (formData) =>{
           handleLogin={this.handleLogin}
           recipes={this.state.recipes}
           />
-
-        <Home />
-        <Recipes recipes={this.state.recipes}/>
+        <main>
+        <Route exact path="/"  render={(props) =>
+            <Home {...props}
+            recipes={this.state.recipes}
+            loggedIn={this.state.loggedIn}
+            />
+            } />
+            
+        </main>
+        
+        {/* <Recipes recipes={this.state.recipes}/> */}
       </div>
     );
   }
