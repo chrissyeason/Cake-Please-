@@ -43,14 +43,31 @@ handleRegistration = async (formData) =>{
   })
   const parsedResponse = await registerResponse.json();
   console.log(parsedResponse);
-  // if(parsedResponse.status.code === 201){
-  //   console.log('registration successful');
     this.setState({
       loggedIn: true,
       username: parsedResponse.username
     })
-  // }
 }
+  handleLogin = async (formData) =>{
+    console.log(formData);
+    console.log("logging in");
+    const registerResponse = await fetch('http://localhost:3001/login', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      credentials: 'omit',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    console.log(registerResponse)
+    const parsedResponse = await registerResponse.json();
+    console.log(parsedResponse, "this is loggedin response")
+      this.setState({
+        loggedIn: true,
+        username: parsedResponse.username
+      })
+  }
   render(){
     return (
       <div className="App">
@@ -58,8 +75,10 @@ handleRegistration = async (formData) =>{
           loggedIn={this.state.loggedIn} 
           username={this.state.username} 
           handleRegistration={this.handleRegistration}
+          handleLogin={this.handleLogin}
           recipes={this.state.recipes}
           />
+
         <Home />
         <Recipes recipes={this.state.recipes}/>
       </div>

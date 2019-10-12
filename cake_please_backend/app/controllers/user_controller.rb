@@ -1,9 +1,13 @@
 class UserController < ApplicationController
 
     # get route
-    def index
-        @user = User.all
-        render json: @user
+    # def index
+    #     @user = User.all
+    #     render json: @user
+    # end
+
+    def index 
+        @current_user = User.find_by_id(session[:current_user_id])
     end
 
     # create route
@@ -14,6 +18,7 @@ class UserController < ApplicationController
             puts 'made it to here'
             session[:user_id] = @user.id
             render json: @user
+            puts @user.id
         else
             puts "user not found"
         end

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Register from '../AuthGateway/Register';
+import Login from '../AuthGateway/Login'
 import Recipes from '../Recipes/Recipes';
 import Home from '../Home/Home';
 
@@ -36,7 +37,11 @@ class Navigation extends Component {
                         loggedIn={this.props.loggedIn}
                         username={this.props.username}
                         handleRegistration={this.props.handleRegistration}
-
+                        />
+                    <Login 
+                        loggedIn={this.props.loggedIn}
+                        username={this.props.username}
+                        handleLogin={this.props.handleLogin}
                         />
                 </nav>
                 
