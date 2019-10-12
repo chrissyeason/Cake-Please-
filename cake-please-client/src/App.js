@@ -24,7 +24,7 @@ class App extends Component {
           this.setState({
               recipes: parsedResponse.data
           })
-            console.log(parsedResponse.data)
+            console.log(recipes)
   }
 handleRegistration = async (formData) =>{
   console.log(formData);
@@ -39,14 +39,13 @@ handleRegistration = async (formData) =>{
   })
   const parsedResponse = await registerResponse.json();
   console.log(parsedResponse);
-  if(parsedResponse.status.code === 201){
-    console.log('registration successful');
+  // if(parsedResponse.status.code === 201){
+  //   console.log('registration successful');
     this.setState({
       loggedIn: true,
       username: parsedResponse.data.username
     })
-  }
-  
+  // }
 }
   render(){
     return (

@@ -35,6 +35,8 @@ class Navigation extends Component {
                     <Register 
                         loggedIn={this.props.loggedIn}
                         username={this.props.username}
+                        handleRegistration={this.props.handleRegistration}
+
                         />
                 </nav>
                 
