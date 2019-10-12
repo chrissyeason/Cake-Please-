@@ -8,13 +8,8 @@ class UserController < ApplicationController
 
     # create route
     def create
-        @user = User.new({ "username" => params['username'], "password" => params['password'] }
-        )
-        puts user_params
-        # puts params['username']
-        # puts params['password']
-        puts 'before user params'
-        puts user_params
+        @user = User.new({ "username" => params['username'], "password" => params['password'] })
+        
         if @user.save
             puts 'made it to here'
             session[:user_id] = @user.id
@@ -24,4 +19,10 @@ class UserController < ApplicationController
         end
     end
 
+
+    private
+
+    # def user_params
+    #     params.require(:user).permit(:username, :password, :password_digest)
+    # end
 end
