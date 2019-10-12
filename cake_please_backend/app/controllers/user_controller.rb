@@ -8,17 +8,20 @@ class UserController < ApplicationController
 
     # create route
     def create
-        @user = User.new(user_params)
+        @user = User.new({ "username" => params['username'], "password" => params['password'] }
+        )
+        puts user_params
+        # puts params['username']
+        # puts params['password']
+        puts 'before user params'
+        puts user_params
         if @user.save
-            session[:user_id] = user.id
+            puts 'made it to here'
+            session[:user_id] = @user.id
+            render json: @user
         else
-            render "user not found"
+            puts "user not found"
         end
     end
 
-    private
-
-    def user_params
-        params.require(:user).permit(:username, :password)
-    end
 end

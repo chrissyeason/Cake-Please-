@@ -32,10 +32,14 @@ handleRegistration = async (formData) =>{
   const registerResponse = await fetch(`http://localhost:3001/user`, {
     method: 'POST',
     body: JSON.stringify(formData),
-    credentials: "include",
+    credentials: "omit",
+    mode: 'cors',
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      'Access-Control-Allow-Origin': 'true',
+      'accept': 'application/json'
     }
+
   })
   const parsedResponse = await registerResponse.json();
   console.log(parsedResponse);
@@ -43,7 +47,7 @@ handleRegistration = async (formData) =>{
   //   console.log('registration successful');
     this.setState({
       loggedIn: true,
-      username: parsedResponse.data.username
+      username: parsedResponse.username
     })
   // }
 }
