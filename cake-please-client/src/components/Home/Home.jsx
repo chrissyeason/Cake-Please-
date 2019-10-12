@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import CakePleaseLogo from './Cake_Please-logo.png';
 import BerryCake from './BerryCake.jpg';
-import Navigation from '../Navigation/Navigation';
+// import Navigation from '../Navigation/Navigation';
 import Popsicles from './popsicles.jpg';
 import Cupcakes from './cupcakes.jpg';
 
