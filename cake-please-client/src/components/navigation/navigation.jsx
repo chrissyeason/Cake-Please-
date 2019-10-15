@@ -28,14 +28,17 @@ class Navigation extends Component {
       );
     render(){
         return(
-            <div class="container">
+            <div>
                 <nav>
                     <main>
                         <Link to="/tutorials">Tutorials</Link>
                         <Link to="/gallery">Inspiration Gallery</Link>
                         <Route exact path = "/recipes" render={(props) =>
                             <Recipes {...props}
-                            recipes={this.props.recipes}/>
+                            recipes={this.props.recipes}
+                            addRecipe={this.props.addRecipe}
+                            username={this.props.username}
+                            />
                         }/>
                         <Link to="/recipes" recipes={this.props.recipes}>Recipes</Link>
                     </main>

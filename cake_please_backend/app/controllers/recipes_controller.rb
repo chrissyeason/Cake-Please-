@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
     before_action :set_recipe, only: [:show, :update, :destroy]
-
+    
     # GET /recipes
     def index 
         @recipes = Recipe.all
@@ -9,13 +9,22 @@ class RecipesController < ApplicationController
   
     #GET /recipes/1
     def show
+        # @recipes = Recipe.find(params[:id])
         render json: @recipes
     end
 
     #POST /recipes
     def create 
+        # @current_user = session[:user_id]
         @recipes = Recipe.new(recipe_params)
-
+        #     'title' => params['title'],
+        #     'image' => params['image'],
+        #     'description' => params['description'],
+        #     'ingredients' => params['ingredients'],
+        #     'instructions' => params['instructions'],
+        #     'id' => params['id'], 
+        #     'user_id' => params['user_id']
+        # })
         if @recipes.save
             render json: @recipes, status: :created, location: @recipes
         else
@@ -45,6 +54,6 @@ class RecipesController < ApplicationController
 
     # only allow a trusted parameter "white list" through
     def recipe_params
-        params.require(:recipe).permit(:title, :image, :description, :ingredients, :instructions)
+        params.require(:recipe).permit(:id, :user_id, :title, :image, :description, :ingredients, :instructions)
     end
 end

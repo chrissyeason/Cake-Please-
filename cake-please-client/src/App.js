@@ -28,10 +28,26 @@ class App extends Component {
           })
             console.log(recipes)
   }
+  addRecipe = async (formData) =>{
+    const newRecipe = await fetch('http://localhost:3001/recipes',{
+      method: 'POST',
+      body: JSON.stringify(formData),
+      credentials: 'omit',
+      headers: {
+        'Content-Type': 'application/json',
+        'dataType': 'json'
+      }
+    })
+    const parsedResponse = await newRecipe.json();
+    console.log(parsedResponse);
+    this.setState({
+      recipes: [...this.state.recipes, parsedResponse]
+    })
+  }
 handleRegistration = async (formData) =>{
   console.log(formData);
   console.log("registering");
-  const registerResponse = await fetch(`http://localhost:3001/user`, {
+  const registerResponse = await fetch(`http://localhost:3001/register`, {
     method: 'POST',
     body: JSON.stringify(formData),
     credentials: "omit",
@@ -53,22 +69,25 @@ handleRegistration = async (formData) =>{
   handleLogin = async (formData) =>{
     console.log(formData);
     console.log("logging in");
-    const registerResponse = await fetch('http://localhost:3001/login', {
+    
+    const registerResponse = await fetch('http://localhost:3001/auth/login', {
       method: 'POST',
       body: JSON.stringify(formData),
       credentials: 'omit',
       mode: 'cors',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       }
     })
     console.log(registerResponse)
     const parsedResponse = await registerResponse.json();
     console.log(parsedResponse, "this is loggedin response")
+    if(parsedResponse.status == "created"){
       this.setState({
         loggedIn: true,
         username: parsedResponse.username
       })
+    } 
   }
   render(){
     return (
@@ -79,6 +98,7 @@ handleRegistration = async (formData) =>{
           handleRegistration={this.handleRegistration}
           handleLogin={this.handleLogin}
           recipes={this.state.recipes}
+          addRecipe={this.addRecipe}
           />
         <main>
         <Route exact path="/"  render={(props) =>
