@@ -27,6 +27,7 @@ class Register extends Component {
         e.preventDefault();
         // register function coming in from parent
         console.log('submitted the form')
+        console.log(this.state);
         this.props.handleRegistration({
           username: this.state.username,
           password: this.state.password

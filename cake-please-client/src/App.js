@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import './App.css';
 import Home from './components/Home/Home';
 import Navigation from './components/Navigation/navigation';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 import Recipes from './components/Recipes/Recipes';
 
 class App extends Component {
@@ -22,31 +24,71 @@ class App extends Component {
         const parsedResponse = await recipes.json();
           console.log("this is parsedResponse", parsedResponse)
           this.setState({
-              recipes: parsedResponse.data
+              recipes: parsedResponse
           })
             console.log(recipes)
+  }
+  addRecipe = async (formData) =>{
+    const newRecipe = await fetch('http://localhost:3001/recipes',{
+      method: 'POST',
+      body: JSON.stringify(formData),
+      credentials: 'omit',
+      headers: {
+        'Content-Type': 'application/json',
+        'dataType': 'json'
+      }
+    })
+    const parsedResponse = await newRecipe.json();
+    console.log(parsedResponse);
+    this.setState({
+      recipes: [...this.state.recipes, parsedResponse]
+    })
   }
 handleRegistration = async (formData) =>{
   console.log(formData);
   console.log("registering");
-  const registerResponse = await fetch(`http://localhost:3001/user`, {
+  const registerResponse = await fetch(`http://localhost:3001/register`, {
     method: 'POST',
     body: JSON.stringify(formData),
-    credentials: "include",
+    credentials: "omit",
+    mode: 'cors',
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
+      'Access-Control-Allow-Origin': 'true',
+      'accept': 'application/json'
     }
+
   })
   const parsedResponse = await registerResponse.json();
   console.log(parsedResponse);
-  // if(parsedResponse.status.code === 201){
-  //   console.log('registration successful');
     this.setState({
       loggedIn: true,
-      username: parsedResponse.data.username
+      username: parsedResponse.username
     })
-  // }
 }
+  handleLogin = async (formData) =>{
+    console.log(formData);
+    console.log("logging in");
+    
+    const registerResponse = await fetch('http://localhost:3001/auth/login', {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      credentials: 'omit',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+    console.log(registerResponse)
+    const parsedResponse = await registerResponse.json();
+    console.log(parsedResponse, "this is loggedin response")
+    if(parsedResponse.status == "created"){
+      this.setState({
+        loggedIn: true,
+        username: parsedResponse.username
+      })
+    } 
+  }
   render(){
     return (
       <div className="App">
@@ -54,10 +96,21 @@ handleRegistration = async (formData) =>{
           loggedIn={this.state.loggedIn} 
           username={this.state.username} 
           handleRegistration={this.handleRegistration}
+          handleLogin={this.handleLogin}
           recipes={this.state.recipes}
+          addRecipe={this.addRecipe}
           />
-        <Home />
-        <Recipes recipes={this.state.recipes}/>
+        <main>
+        <Route exact path="/"  render={(props) =>
+            <Home {...props}
+            recipes={this.state.recipes}
+            loggedIn={this.state.loggedIn}
+            />
+            } />
+            
+        </main>
+        
+        {/* <Recipes recipes={this.state.recipes}/> */}
       </div>
     );
   }
