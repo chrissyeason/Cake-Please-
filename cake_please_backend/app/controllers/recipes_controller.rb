@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-    before_action :set_recipe, only: [:show, :update, :destroy]
+    # before_action :set_recipe, only: [:show, :update, :destroy]
     
     # GET /recipes
     def index 
@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
   
     #GET /recipes/1
     def show
-        # @recipes = Recipe.find(params[:id])
+        @recipes = Recipe.find(params[:id])
         render json: @recipes
     end
 
@@ -43,7 +43,8 @@ class RecipesController < ApplicationController
 
     # DELETE /recipes/1
     def destroy
-        @recipes.destroy
+        Recipe.destroy(params[:id])
+        
     end
 
     private

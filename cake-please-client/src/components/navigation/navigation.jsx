@@ -39,6 +39,7 @@ class Navigation extends Component {
                             recipes={this.props.recipes}
                             addRecipe={this.props.addRecipe}
                             username={this.props.username}
+                            deleteRecipe={this.props.deleteRecipe}
                             />
                         }/>
                         <Link to="/recipes" recipes={this.props.recipes}>Recipes</Link>

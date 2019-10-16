@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
 import './newRecipe.css'
 
 class NewRecipe extends Component {
@@ -37,7 +37,6 @@ class NewRecipe extends Component {
             description: this.state.description,
             ingredients: this.state.ingredients,
             instructions: this.state.instructions,
-            user_id: this.state.user_id
         });
         this.setState({
             modal: false

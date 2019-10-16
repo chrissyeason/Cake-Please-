@@ -1,24 +1,19 @@
-import React, {Component} from 'react';
+import React from 'react';
 import CakePleaseLogo from './Cake_Please-logo.png';
 import BerryCake from './BerryCake.jpg';
-// import Navigation from '../Navigation/Navigation';
 import Popsicles from './popsicles.jpg';
 import Cupcakes from './cupcakes.jpg';
 import './home.css';
 
-class Home extends Component {
-    constructor(){
-        super();
-    }
-    render(){
+function Home(props) {
         return(
             <div>
                 <div className="container-top">
-                    <img src = {BerryCake} id="cake-photo"/>
+                    <img src = {BerryCake} id="cake-photo" alt="blueberry cake"/>
                     
-                    <img src={CakePleaseLogo} id="logo"/>
+                    <img src={CakePleaseLogo} id="logo" alt="cake please logo" />
                     <h6 id="site-description">Allowing cake and dessert artists to collaborate through tutorials, recipes, and photo inspiration.</h6>
-                    <img src={Popsicles} id="popsicles-img"/>
+                    <img src={Popsicles} id="popsicles-img" alt="popsicles" />
                 </div>
                 <div className="container-bottom">
                     <div id="tutorials">
@@ -40,16 +35,15 @@ class Home extends Component {
                             a favorite of your own for others to enjoy.
                         </p>
                     </div>
-                    <img src={Cupcakes} id="cupcakes"/>
+                    <img src={Cupcakes} id="cupcakes" alt="cupcakes" />
                 </div> 
                     <div className="footer">
-                        <img src={CakePleaseLogo} id="bottom-logo"/>
+                        <img src={CakePleaseLogo} id="bottom-logo" alt="cake please logo" />
                         <p id="hire-footer">Website created by Chrissy Eason. Hire her!</p>
                     </div>
                 
             </div>
         )
     }
-}
 
 export default Home;
