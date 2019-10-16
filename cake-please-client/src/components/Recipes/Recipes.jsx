@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import NewRecipe from './NewRecipe/NewRecipe';
+import CakePleaseLogo from './Cake_Please-logo.png';
+import Home from '../Home/Home';
+import './Recipes.css';
 
 class Recipes extends Component {
     constructor(props){
@@ -7,6 +11,11 @@ class Recipes extends Component {
         console.log(props, "this is props")
 
     }
+    // Main = () => (
+    //     <div>
+    //       <Route exact path="/" component={Home} />
+    //     </div>
+    //   );
     render(){
             const recipes = this.props.recipes.map((recipe)=>{
                return <div key={recipe._id}>
@@ -19,11 +28,14 @@ class Recipes extends Component {
             })
             return(
                 <div>
-                    <h2>this is recipes component</h2>
+                    <Link to="/"><img src={CakePleaseLogo} id="logo-recipes"/></Link>
+                    <h2>Recipes</h2>
                     <NewRecipe 
                         addRecipe={this.props.addRecipe}
                         username={this.props.username}/>
-                    {recipes}
+                        <div className="recipes-info">
+                            {recipes}
+                        </div>    
                 </div>
             )
     }

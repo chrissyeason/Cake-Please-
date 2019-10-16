@@ -4,6 +4,7 @@ import Register from '../AuthGateway/Register';
 import Login from '../AuthGateway/Login'
 import Recipes from '../Recipes/Recipes';
 import Home from '../Home/Home';
+import './navigation.css';
 
 class Navigation extends Component {
     constructor(props){
@@ -29,7 +30,7 @@ class Navigation extends Component {
     render(){
         return(
             <div>
-                <nav>
+                <nav id="nav-bar">
                     <main>
                         <Link to="/tutorials">Tutorials</Link>
                         <Link to="/gallery">Inspiration Gallery</Link>
@@ -42,17 +43,18 @@ class Navigation extends Component {
                         }/>
                         <Link to="/recipes" recipes={this.props.recipes}>Recipes</Link>
                     </main>
-                    
-                    <Register 
-                        loggedIn={this.props.loggedIn}
-                        username={this.props.username}
-                        handleRegistration={this.props.handleRegistration}
-                        />
-                    <Login 
-                        loggedIn={this.props.loggedIn}
-                        username={this.props.username}
-                        handleLogin={this.props.handleLogin}
-                        />
+                    <div className="AuthGateway">
+                        <Register 
+                            loggedIn={this.props.loggedIn}
+                            username={this.props.username}
+                            handleRegistration={this.props.handleRegistration}
+                            />
+                        <Login 
+                            loggedIn={this.props.loggedIn}
+                            username={this.props.username}
+                            handleLogin={this.props.handleLogin}
+                            />
+                    </div>
                 </nav>
                 
                 {/* <Route 

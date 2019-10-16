@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+.container-top {
+    display: grid;
+    grid-template-areas: 
+        "cake   nav"
+        "cake   logo"
+        "cake   description"
+        "cake   popsicles"
+        ".      popsicles";
+    grid-template-rows: 10% 20% 10% 5%;
+    grid-template-columns: 55% 45%;
+}
+
+.container-top #cake-photo {
+    grid-area: cake;
+    width: 100%;
+}
+.container-top #logo {
+    grid-area: logo;
+    justify-self: center;
+    width: 45%;
+}
+.container-top h6 {
+    grid-area: description;
+    margin-top: 28px;
+    padding-left: 10%;
+    padding-right: 10%;
+    justify-self: center;
+    font-size: 1.85vw;
+    line-height: 1.5;
+    color: #A1AFAE;
+    font-family: 'Lato', sans-serif;
+
+}
+.container-top #popsicles-img {
+    grid-area: popsicles;
+    width: 90%;
+    justify-self: end;
+    margin-top: 15px; 
+}
+
+.container-bottom {
+    display: grid;
+    grid-template-areas:
+        "tutorials inspiration recipes"
+        "cupcakes cupcakes cupcakes";
+    grid-template-rows: 200px;
+    grid-gap: 7%;
+    color: #7E8988;
+}
+#tutorials {
+    grid-area: tutorials;
+    margin-left: 20%;
+}
+#inspiration {
+    grid-area: inspiration;
+}
+#recipes {
+    grid-area: recipes;
+    margin-right: 20%;
+}
+#cupcakes {
+    grid-area: cupcakes;
+    width: 100vw;
+}
+p {
+    font-size: 1.75vw;
+}
+.container-bottom h4 {
+    font-size: 3vw;
+    margin-bottom: 6%;
+}
+.footer {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: "logo footer";
+}
+#bottom-logo {
+    grid-area: logo;
+}
+#hire-footer {
+    grid-area: footer;
+}

@@ -1,0 +1,13 @@
+#logo-recipes {
+    position: absolute;
+    top: -25px;
+    left: 90px;
+    width: 20%;
+}
+.recipes-info {
+    display: flex;
+    /* width: 20%; */
+}
+img {
+    width: 50%;
+}

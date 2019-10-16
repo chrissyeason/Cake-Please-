@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-// import './Login.css';
-// import '../Register/Register.css';
+import './Login.css';
 
 class Login extends Component {
     constructor(props){
@@ -38,7 +37,7 @@ class Login extends Component {
     render(){
         return(
             <div className="Login">
-                <Button color="white" onClick={this.toggle}>login</Button>
+                <Button color="white" onClick={this.toggle}>LOGIN</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                 <ModalHeader toggle={this.toggle}>Login</ModalHeader>
                 <ModalBody>

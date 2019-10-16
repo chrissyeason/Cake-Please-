@@ -1,0 +1,32 @@
+
+#nav-bar {
+    position: absolute;
+    top: 20px;
+    display: grid;
+    width: 100vw;
+    grid-template-areas: 
+        "Auth main";
+    grid-template-columns: 55% 45%;    
+    margin-top: 25px;
+}
+#nav-bar a{
+    color: #7E8988;
+}
+#nav-bar main {
+    grid-area: main;
+    justify-self: center;
+} 
+.AuthGateway {
+    display: flex;
+    position: relative;
+    top: -15px;
+    grid-area: Auth;
+    justify-self: start;
+    margin-left: 10%;
+}
+a {
+    padding: 15px 15px;
+    margin-top: 20px;
+    color: #A1AFAE;
+    font-size: 1.35vw;
+}
