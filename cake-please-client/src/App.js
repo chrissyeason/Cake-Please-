@@ -61,6 +61,32 @@ class App extends Component {
       })
     }
   }
+  updateRecipe = async (id, formData) =>{
+    const updatedRecipe = await fetch(`http://localhost:3001/recipes/${id}`,{
+      method: 'PUT',
+      body: JSON.stringify(formData),
+      credientials: 'omit',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'true',
+        'accept': 'application/json'
+      }
+  })
+    const parsedResponse = await updatedRecipe.json();
+    console.log(parsedResponse, "this is response from update")
+    if(parsedResponse.status === 'ok'){
+      this.setState({
+        recipes: this.state.recipes.map((recipe)=>{
+          if(id === recipe.id){
+            return parsedResponse.data
+          }else{
+            return recipe
+          }
+        })
+      })
+    }
+  }
 handleRegistration = async (formData) =>{
   console.log(formData);
   console.log("registering");
@@ -115,6 +141,7 @@ handleRegistration = async (formData) =>{
           handleRegistration={this.handleRegistration}
           handleLogin={this.handleLogin}
           deleteRecipe={this.deleteRecipe}
+          updateRecipe={this.updateRecipe}
           recipes={this.state.recipes}
           addRecipe={this.addRecipe}
           />

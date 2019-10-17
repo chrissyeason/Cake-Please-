@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
-// import UpdateAdventure from './UpdateAdventure';
+import UpdateRecipe from '../UpdateRecipe/UpdateRecipe';
 
 class ShowRecipe extends Component{
     constructor(props){
@@ -30,18 +30,19 @@ class ShowRecipe extends Component{
                     <p className="description">{this.props.description}</p>
                     <h4>{this.props.ingredients}</h4>
                     <p>{this.props.instructions}</p>
+                
+                
+                        <button onClick={() => {this.props.deleteRecipe(this.props.id)}}>delete</button> :
+                
                     
-                    
-                            <button onClick={() => {this.props.deleteRecipe(this.props.id)}}>delete</button> :
-                    
-                        {/* this.props.currentUser === this.props.username ? */}
-                            {/* <UpdateAdventure updateAdventure={this.props.updateAdventure}
-                            what={this.props.what}
-                            where={this.props.where}
-                            when={this.props.when}
-                            description={this.props.description}
-                            id={this.props._id}
-                            />  */}
+                        <UpdateRecipe updateRecipe={this.props.updateRecipe}
+                        title={this.props.title}
+                        image={this.props.image}
+                        description={this.props.description}
+                        ingredients={this.props.ingredients}
+                        instructions={this.props.instructions}
+                        id={this.props.id}
+                        />  
 
                 </ModalBody>
                 </Modal>

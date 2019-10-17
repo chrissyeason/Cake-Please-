@@ -21,6 +21,7 @@ console.log(props, "this is props")
                     ingredients={recipe.ingredients}
                     instructions={recipe.instructions}
                     deleteRecipe={props.deleteRecipe}
+                    updateRecipe={props.updateRecipe}
                     id={recipe.id}
                     />
             </li>

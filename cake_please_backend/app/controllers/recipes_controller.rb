@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-    # before_action :set_recipe, only: [:show, :update, :destroy]
+    before_action :set_recipe, only: [:show, :update, :destroy]
     
     # GET /recipes
     def index 
@@ -35,7 +35,7 @@ class RecipesController < ApplicationController
     # PATCH/PUT /recipes/1
     def update
         if @recipes.update(recipe_params)
-            render json: @recipes
+            render json: @recipes, status: :ok
         else
             render json: @recipes.errors, status: :unprocessable_entity
         end
@@ -43,8 +43,11 @@ class RecipesController < ApplicationController
 
     # DELETE /recipes/1
     def destroy
-        Recipe.destroy(params[:id])
-        
+        if @recipes.destroy
+            render json: {status: 200}
+        else
+            render json: @recipes.errors
+        end
     end
 
     private
