@@ -9,7 +9,7 @@ function Home(props) {
         return(
             <div>
                 <div className="container-top">
-                    <img src = {BerryCake} id="cake-photo" alt="blueberry cake"/>
+                    <img src = {BerryCake} id="cake-photo" alt="blackberry cake"/>
                     
                     <img src={CakePleaseLogo} id="logo" alt="cake please logo" />
                     <h6 id="site-description">Allowing cake and dessert artists to collaborate through tutorials, recipes, and photo inspiration.</h6>
@@ -38,7 +38,6 @@ function Home(props) {
                     <img src={Cupcakes} id="cupcakes" alt="cupcakes" />
                 </div> 
                     <div className="footer">
-                        <img src={CakePleaseLogo} id="bottom-logo" alt="cake please logo" />
                         <p id="hire-footer">Website created by Chrissy Eason. Hire her!</p>
                     </div>
                 

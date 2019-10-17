@@ -46,7 +46,7 @@ class NewRecipe extends Component {
     render(){
         return(
             <div className="new-recipe">
-                <Button color="white" onClick={this.toggle}>add</Button>
+                <Button id="add-button" color="white" onClick={this.toggle}><h4>add recipe</h4></Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                 <ModalHeader toggle={this.toggle}>Add a Recipe</ModalHeader>
                 <ModalBody>

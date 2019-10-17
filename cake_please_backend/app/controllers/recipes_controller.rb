@@ -17,14 +17,7 @@ class RecipesController < ApplicationController
     def create 
         # @current_user = session[:user_id]
         @recipes = Recipe.new(recipe_params)
-        #     'title' => params['title'],
-        #     'image' => params['image'],
-        #     'description' => params['description'],
-        #     'ingredients' => params['ingredients'],
-        #     'instructions' => params['instructions'],
-        #     'id' => params['id'], 
-        #     'user_id' => params['user_id']
-        # })
+        
         if @recipes.save
             render json: @recipes, status: :created, location: @recipes
         else

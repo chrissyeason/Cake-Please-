@@ -48,6 +48,7 @@
     grid-template-rows: 200px;
     grid-gap: 7%;
     color: #7E8988;
+    margin-top: 5%;
 }
 #tutorials {
     grid-area: tutorials;
@@ -63,6 +64,7 @@
 #cupcakes {
     grid-area: cupcakes;
     width: 100vw;
+    margin-top: -5%;
 }
 p {
     font-size: 1.75vw;

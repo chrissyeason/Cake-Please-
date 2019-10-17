@@ -34,17 +34,19 @@ class Navigation extends Component {
                     <main>
                         <Link to="/tutorials">Tutorials</Link>
                         <Link to="/gallery">Inspiration Gallery</Link>
+                        <Link to="/recipes" recipes={this.props.recipes}>Recipes</Link>
+                    </main>    
                         <Route exact path = "/recipes" render={(props) =>
                             <Recipes {...props}
-                            recipes={this.props.recipes}
-                            addRecipe={this.props.addRecipe}
-                            username={this.props.username}
-                            deleteRecipe={this.props.deleteRecipe}
-                            updateRecipe={this.props.updateRecipe}
+                                recipes={this.props.recipes}
+                                addRecipe={this.props.addRecipe}
+                                username={this.props.username}
+                                deleteRecipe={this.props.deleteRecipe}
+                                updateRecipe={this.props.updateRecipe}
                             />
                         }/>
-                        <Link to="/recipes" recipes={this.props.recipes}>Recipes</Link>
-                    </main>
+                        
+                    
                     <div className="AuthGateway">
                         <Register 
                             loggedIn={this.props.loggedIn}
@@ -59,15 +61,6 @@ class Navigation extends Component {
                     </div>
                 </nav>
                 
-                {/* <Route 
-                    exact path="/"  
-                    component={Home} />
-                <Route 
-                    path="/recipes"    
-                    component={Recipes} 
-                    exact
-                    recipes={this.props.recipes}
-                    />                */}
             </div>
             ) 
     }

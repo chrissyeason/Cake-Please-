@@ -5,14 +5,14 @@ import CakePleaseLogo from './Cake_Please-logo.png';
 import Home from '../Home/Home';
 import ShowRecipe from './ShowRecipe/ShowRecipe';
 import './Recipes.css';
+// import LemonTarts from '../Recipes/lemon-tarts.jpg';
+import LemonCake from '../Recipes/Recipes-Lemon-header.jpg';
 
 function Recipes(props) {
 console.log(props, "this is props")
 
     const recipes = props.recipes.map(function(recipe, id){
     return( <li key={id}>
-                <img src={recipe.image}/>
-                <h1>{recipe.id}</h1>
                 
                 <ShowRecipe 
                     title={recipe.title}
@@ -29,15 +29,21 @@ console.log(props, "this is props")
     })
     return(
         <div>
+            <img src={LemonCake} id="lemon-cake"/>
             <Link to="/"><img src={CakePleaseLogo} id="logo-recipes"/></Link>
-            <h2>Recipes</h2>
-            <NewRecipe 
-                addRecipe={props.addRecipe}
-                username={props.username}/>
-
+            
+            <div className="add-recipe">
+               
+                <NewRecipe 
+                    addRecipe={props.addRecipe}
+                    username={props.username}/>
+            </div>
+            
+            <div id="recipe-container">
                 <ul className="recipes-info">
                     {recipes}
                 </ul>    
+            </div>    
         </div>
     )
 }
