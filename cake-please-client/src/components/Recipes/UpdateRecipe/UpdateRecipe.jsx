@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
-// import './newRecipe.css'
+import '../NewRecipe/newRecipe.css'
 
 class UpdateRecipe extends Component {
     constructor(props){
@@ -40,7 +40,7 @@ class UpdateRecipe extends Component {
     render(){
         return(
             <div className="update-recipe">
-                <Button color="white" onClick={this.toggle}>update</Button>
+                <Button id="update-button" color="white" onClick={this.toggle}>update</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                 <ModalHeader toggle={this.toggle}>Update the Recipe</ModalHeader>
                 <ModalBody>

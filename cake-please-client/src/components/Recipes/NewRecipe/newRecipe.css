@@ -10,6 +10,10 @@
     font-size: 6vw;
     line-height: 0;
 }
+#update-button {
+    background-color: #e8d3f0;
+    margin-left: 5px;
+}
 .modal-title {
     font-family: 'Lovers Quarrel', cursive;
     color: #c291c9;

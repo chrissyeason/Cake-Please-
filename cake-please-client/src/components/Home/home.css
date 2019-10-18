@@ -83,6 +83,7 @@ p {
     display: grid;
     grid-template-rows: 50% 50%;
     grid-template-areas: "logo footer";
+    color: #85518c;
 }
 #bottom-logo {
     grid-area: logo;

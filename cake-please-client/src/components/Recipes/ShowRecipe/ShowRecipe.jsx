@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import UpdateRecipe from '../UpdateRecipe/UpdateRecipe';
 import '../Recipes.css';
+import './showRecipe.css';
 
 class ShowRecipe extends Component{
     constructor(props){
@@ -28,12 +29,18 @@ class ShowRecipe extends Component{
                 <ModalBody>
                     <img src={this.props.image} className="modal-image"/>
                     <h1>{this.props.title}</h1>
-                    <p className="description">{this.props.description}</p>
-                    <h4>{this.props.ingredients}</h4>
-                    <p>{this.props.instructions}</p>
+                    <h3 className="description">{this.props.description}</h3>
+                    <ul>
+                        <li>{this.props.ingredients}</li> 
+                    </ul>
+                    <ol>
+                        <li>{this.props.instructions}</li>
+                    </ol>
+                    
                 
-                
-                        <button onClick={() => {this.props.deleteRecipe(this.props.id)}}>delete</button> :
+                </ModalBody>
+                <ModalFooter>
+                        <button className="delete-button" onClick={() => {this.props.deleteRecipe(this.props.id)}}>delete</button>
                 
                     
                         <UpdateRecipe updateRecipe={this.props.updateRecipe}
@@ -45,7 +52,7 @@ class ShowRecipe extends Component{
                         id={this.props.id}
                         />  
 
-                </ModalBody>
+                </ModalFooter>
                 </Modal>
             </div>        
         )  

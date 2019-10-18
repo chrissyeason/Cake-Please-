@@ -24,15 +24,17 @@
     grid-area: logo;
     justify-self: center;
     width: 48%;
+    z-index: 2;
 }
 .add-recipe {
-    margin-top: 20px;
+    margin-top: 8%;
     grid-area: add-button;
 }
 #lemons {
     grid-area: lemons;
     justify-self: end;
     width: 100%;
+    z-index: -2;
 }
 
 li {

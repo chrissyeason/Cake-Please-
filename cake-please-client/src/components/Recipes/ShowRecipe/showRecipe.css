@@ -1,0 +1,22 @@
+.modal-body img {
+    max-width: 60vw;
+    max-height: 60vh;
+    margin-bottom: 5%;
+    margin-left: 8%;
+}
+.modal-body h1{
+    padding: 1rem 1rem 1rem 3rem;
+}
+.modal-body h3{
+    padding: 0 1rem 1rem 3rem;
+}
+.modal-body h4{
+    padding: 1rem 1rem 1rem 3rem;
+}
+.delete-button {
+    background-color: #e8d3f0;
+    border: solid 2px #e8d3f0;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    margin-right: 5px;
+}

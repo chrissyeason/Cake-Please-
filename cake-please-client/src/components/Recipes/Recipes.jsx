@@ -12,7 +12,7 @@ function Recipes(props) {
 console.log(props, "this is props")
 
     const recipes = props.recipes.map(function(recipe, id){
-    return( <li key={id}>
+    return( <li key={recipe.id}>
                 
                 <ShowRecipe 
                     title={recipe.title}
@@ -44,7 +44,7 @@ console.log(props, "this is props")
                 <ul className="recipes-info">
                     {recipes}
                 </ul>    
-            </div>    
+            </div>   
         </div>
     )
 }
