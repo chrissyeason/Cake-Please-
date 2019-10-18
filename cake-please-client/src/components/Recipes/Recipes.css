@@ -23,10 +23,10 @@
 #logo {
     grid-area: logo;
     justify-self: center;
-    width: 45%;
+    width: 48%;
 }
 .add-recipe {
-    /* margin-left: 50%; */
+    margin-top: 20px;
     grid-area: add-button;
 }
 #lemons {
@@ -43,7 +43,7 @@ li {
 #recipe-container {
     width: 100vw;
     text-align: center;
-    margin: 0 auto;
+    margin-top: -20%;
 }
 #recipe-container > * {
     margin: 1em 0;

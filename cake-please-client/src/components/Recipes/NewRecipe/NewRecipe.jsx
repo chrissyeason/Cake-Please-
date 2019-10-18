@@ -48,7 +48,7 @@ class NewRecipe extends Component {
             <div className="new-recipe">
                 <Button id="add-button" color="white" onClick={this.toggle}><h4>add a recipe</h4></Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                <ModalHeader toggle={this.toggle}>Add a Recipe</ModalHeader>
+                <ModalHeader toggle={this.toggle}>add a recipe</ModalHeader>
                 <ModalBody>
                     <form onSubmit={this.handleSubmit}>
                         <input type="text" name="title" placeholder="Title" onChange={this.handleChange}/>
