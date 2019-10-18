@@ -2,11 +2,11 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import NewRecipe from './NewRecipe/NewRecipe';
 import CakePleaseLogo from './Cake_Please-logo.png';
-import Home from '../Home/Home';
 import ShowRecipe from './ShowRecipe/ShowRecipe';
 import './Recipes.css';
-// import LemonTarts from '../Recipes/lemon-tarts.jpg';
-import LemonCake from '../Recipes/Recipes-Lemon-header.jpg';
+import {PlusSign} from './plus-sign.png';
+import LemonCake from '../Recipes/LemonCake-recipe-page.png';
+import Lemons from '../Recipes/lemons.jpg';
 
 function Recipes(props) {
 console.log(props, "this is props")
@@ -29,16 +29,17 @@ console.log(props, "this is props")
     })
     return(
         <div>
-            <img src={LemonCake} id="lemon-cake"/>
-            <Link to="/"><img src={CakePleaseLogo} id="logo-recipes"/></Link>
-            
-            <div className="add-recipe">
-               
-                <NewRecipe 
-                    addRecipe={props.addRecipe}
-                    username={props.username}/>
+            <div id="recipe-header">
+                <img src={LemonCake} id="lemon-cake"/>
+                <Link to="/"><img src={CakePleaseLogo} id="logo"/></Link>
+                
+                <div className="add-recipe">
+                    <NewRecipe 
+                        addRecipe={props.addRecipe}
+                        username={props.username}/>
+                </div>
+                <img src={Lemons} id="lemons"/>
             </div>
-            
             <div id="recipe-container">
                 <ul className="recipes-info">
                     {recipes}

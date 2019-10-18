@@ -15,11 +15,17 @@
 .container-top #cake-photo {
     grid-area: cake;
     width: 100%;
+    z-index: -1;
 }
 .container-top #logo {
     grid-area: logo;
     justify-self: center;
     width: 45%;
+}
+#plus-sign {
+    grid-area: cake;
+    width: 500px;
+    z-index: 2;
 }
 .container-top h6 {
     grid-area: description;

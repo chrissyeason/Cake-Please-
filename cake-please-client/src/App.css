@@ -20,3 +20,16 @@
 .App-link {
   color: #09d3ac;
 }
+.grid-container {
+  grid-template-areas: 
+  "Auth   main"
+  "cake   nav"
+  "cake   logo"
+  "cake   description"
+  "cake   popsicles"
+  ".      popsicles";
+  grid-template-columns: 55% 45%;
+  grid-template-rows: 5% 10% 20% 10% 5%;
+  display: grid;
+  width: 100vw; 
+}
