@@ -16,20 +16,16 @@
     grid-area: cake;
     width: 100%;
     z-index: -1;
+    margin-right: 20px;
 }
 .container-top #logo {
     grid-area: logo;
     justify-self: center;
-    width: 45%;
-}
-#plus-sign {
-    grid-area: cake;
-    width: 500px;
-    z-index: 2;
+    width: 40%;
 }
 .container-top h6 {
     grid-area: description;
-    margin-top: 28px;
+    margin-top: -8px;
     padding-left: 10%;
     padding-right: 10%;
     justify-self: center;
@@ -41,9 +37,10 @@
 }
 .container-top #popsicles-img {
     grid-area: popsicles;
-    width: 90%;
+    width: 100%;
     justify-self: end;
-    margin-top: 15px; 
+    margin-left: 30px;
+    margin-top: -5px; 
 }
 
 .container-bottom {
@@ -83,11 +80,13 @@ p {
     display: grid;
     grid-template-rows: 50% 50%;
     grid-template-areas: "logo footer";
-    color: #85518c;
+    
 }
 #bottom-logo {
     grid-area: logo;
 }
 #hire-footer {
     grid-area: footer;
+    color: #85518c;
+    font-size: 1.25rem;
 }

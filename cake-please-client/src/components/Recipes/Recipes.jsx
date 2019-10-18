@@ -4,8 +4,7 @@ import NewRecipe from './NewRecipe/NewRecipe';
 import CakePleaseLogo from './Cake_Please-logo.png';
 import ShowRecipe from './ShowRecipe/ShowRecipe';
 import './Recipes.css';
-import {PlusSign} from './plus-sign.png';
-import LemonCake from '../Recipes/LemonCake-recipe-page.png';
+import Cookies from '../Recipes/cookies-recipe-page.jpg';
 import Lemons from '../Recipes/lemons.jpg';
 
 function Recipes(props) {
@@ -30,7 +29,7 @@ console.log(props, "this is props")
     return(
         <div>
             <div id="recipe-header">
-                <img src={LemonCake} id="lemon-cake"/>
+                <img src={Cookies} id="cookies"/>
                 <Link to="/"><img src={CakePleaseLogo} id="logo"/></Link>
                 
                 <div className="add-recipe">

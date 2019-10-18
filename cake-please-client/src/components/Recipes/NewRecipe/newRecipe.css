@@ -1,24 +1,25 @@
-@import url('https://fonts.googleapis.com/css?family=Lovers+Quarrel&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Sacramento&display=swap');
 .new-recipe Button {
     background-color: white;
 }
 
 #add-button h4 {
-    font-family: 'Lovers Quarrel', cursive;
+    font-family: 'Sacramento', cursive;
     color: #7E8988;
-    font-size: 6vw;
+    font-size: 5.5vw;
     line-height: 0;
 }
 #update-button {
-    background-color: #e8d3f0;
+    background-color: #a67ea8;
     margin-left: 5px;
+    color: white;
 }
 .modal-title {
-    font-family: 'Lovers Quarrel', cursive;
-    color: #c291c9;
-    font-size: 6vw;
+    font-family: 'Sacramento', cursive;
+    color: #a67ea8;
+    font-size: 4.5vw;
     padding-left: 25px;
+    padding-top: 10px;
     text-transform: lowercase;
 }
 .modal-body input[type=submit] {
