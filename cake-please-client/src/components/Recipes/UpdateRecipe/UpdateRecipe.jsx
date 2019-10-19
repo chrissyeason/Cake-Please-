@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap';
-import './newRecipe.css';
+import '../NewRecipe/newRecipe.css'
 
-class NewRecipe extends Component {
+class UpdateRecipe extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -30,18 +30,16 @@ class NewRecipe extends Component {
     handleSubmit = (e) =>{
         e.preventDefault();
         console.log(this.props)
-        console.log("handle submit")
+        console.log("handle submit update")
         const ingredientList = this.state.ingredients.split("\n");
         const instructionsList = this.state.instructions.split("\n");
-        console.log(ingredientList);
-        console.log(instructionsList);
-        this.props.addRecipe({
+
+        this.props.updateRecipe(this.props.id,{ 
             title: this.state.title,
             image: this.state.image,
             description: this.state.description,
             ingredients: ingredientList,
-            instructions: instructionsList,
-        });
+            instructions: instructionsList,});
         this.setState({
             modal: false
         })
@@ -49,17 +47,17 @@ class NewRecipe extends Component {
     
     render(){
         return(
-            <div className="new-recipe">
-                <Button id="add-button" color="white" onClick={this.toggle}><h4>add a recipe</h4></Button>
+            <div className="update-recipe">
+                <Button id="update-button" color="white" onClick={this.toggle}>update</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                <ModalHeader toggle={this.toggle}>add a recipe</ModalHeader>
+                <ModalHeader toggle={this.toggle}>Update the Recipe</ModalHeader>
                 <ModalBody>
                     <form onSubmit={this.handleSubmit}>
-                        <input type="text" name="title" placeholder="Title" onChange={this.handleChange}/>
+                        <input type="text" name="title" placeholder={this.props.title} onChange={this.handleChange}/>
                         <input type="text" name="image" placeholder="Image Address" onChange={this.handleChange}/>
-                        <input type="text" name="description" placeholder="Description" onChange={this.handleChange}/>
-                        <textarea id="ingredient-list" type="text" name="ingredients" placeholder="Ingredients (please add one ingredient per line)" onChange={this.handleChange}/>
-                        <textarea type="text" name="instructions" placeholder="Instructions" onChange={this.handleChange}></textarea>
+                        <input type="text" name="description" placeholder={this.props.description} onChange={this.handleChange}/>
+                        <textarea type="text" name="ingredients" placeholder={this.props.ingredients} onChange={this.handleChange}/>
+                        <textarea type="text" name="instructions" placeholder={this.props.ingredients} onChange={this.handleChange}></textarea>
                         <input type="submit" value="submit" onClick={this.toggle}/>
                     </form>
                 </ModalBody>
@@ -68,4 +66,4 @@ class NewRecipe extends Component {
         )
     }
 }
-export default NewRecipe;
+export default UpdateRecipe;

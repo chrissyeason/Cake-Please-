@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Sacramento&display=swap');
+.new-recipe Button {
+    background-color: white;
+}
+#add-button {
+    margin-right: 10px;
+}
+#add-button h4 {
+    font-family: 'Sacramento', cursive;
+    color: #7E8988;
+    font-size: 5.5vw;
+    line-height: 0;
+}
+#update-button {
+    background-color: #e8d3f0;
+    margin-left: 5px;
+    color: 7E8988;
+}
+.modal-title {
+    font-family: 'Sacramento', cursive;
+    color: #a67ea8;
+    font-size: 4.5vw;
+    padding-left: 25px;
+    padding-top: 10px;
+    text-transform: lowercase;
+}
+.modal-body input[type=submit] {
+    background-color: #e8d3f0;
+    border-radius: 10px;
+}
+.modal-body input{
+    display: block;
+    margin: 10px 5% 15px 5%;
+    padding: 10px;
+    width: 90%;
+}
+.modal-body textarea{
+    display: block;
+    margin-top: 10px;
+    margin: 10px 5% 15px 5%;
+    padding: 10px;
+    width: 90%;
+}
+

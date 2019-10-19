@@ -3,8 +3,7 @@ import './App.css';
 import Home from './components/Home/Home';
 import Navigation from './components/Navigation/navigation';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
-import Recipes from './components/Recipes/Recipes';
+// import Recipes from './components/Recipes/Recipes';
 
 class App extends Component {
   constructor(){
@@ -22,7 +21,7 @@ class App extends Component {
   getRecipes = async () => {
         const recipes = await fetch(`http://localhost:3001/recipes`);
         const parsedResponse = await recipes.json();
-          console.log("this is parsedResponse", parsedResponse)
+          console.log("this is parsedResponse from getRecipes", parsedResponse)
           this.setState({
               recipes: parsedResponse
           })
@@ -43,6 +42,50 @@ class App extends Component {
     this.setState({
       recipes: [...this.state.recipes, parsedResponse]
     })
+  }
+  deleteRecipe = async (id) =>{
+    const deleteResponse = await fetch(`http://localhost:3001/recipes/${id}`,{
+      method: 'DELETE',
+      credientials: 'include',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    const parsedResponse = await deleteResponse.json();
+    console.log(parsedResponse)
+    if(parsedResponse.status === 200){
+      this.setState({
+        recipes: this.state.recipes.filter(function(recipe){
+          return recipe.id !== id;
+        })
+      })
+    }
+  }
+  updateRecipe = async (id, formData) =>{
+    const updatedRecipe = await fetch(`http://localhost:3001/recipes/${id}`,{
+      method: 'PUT',
+      body: JSON.stringify(formData),
+      credientials: 'omit',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'true',
+        'accept': 'application/json'
+      }
+  })
+    const parsedResponse = await updatedRecipe.json();
+    console.log(parsedResponse, "this is response from update")
+    if(parsedResponse.status === 'ok'){
+      this.setState({
+        recipes: this.state.recipes.map((recipe)=>{
+          if(id === recipe.id){
+            return parsedResponse.data
+          }else{
+            return recipe
+          }
+        })
+      })
+    }
   }
 handleRegistration = async (formData) =>{
   console.log(formData);
@@ -82,7 +125,7 @@ handleRegistration = async (formData) =>{
     console.log(registerResponse)
     const parsedResponse = await registerResponse.json();
     console.log(parsedResponse, "this is loggedin response")
-    if(parsedResponse.status == "created"){
+    if(parsedResponse.status === "created"){
       this.setState({
         loggedIn: true,
         username: parsedResponse.username
@@ -97,6 +140,8 @@ handleRegistration = async (formData) =>{
           username={this.state.username} 
           handleRegistration={this.handleRegistration}
           handleLogin={this.handleLogin}
+          deleteRecipe={this.deleteRecipe}
+          updateRecipe={this.updateRecipe}
           recipes={this.state.recipes}
           addRecipe={this.addRecipe}
           />

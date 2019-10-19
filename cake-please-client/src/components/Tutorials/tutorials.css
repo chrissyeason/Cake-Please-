@@ -1,0 +1,15 @@
+
+.tutorial h1 {
+    position: absolute;
+    top: 20%;
+    left: 18%; 
+    font-size: 8vw;
+    margin: auto;
+    color: white;
+    text-shadow: 2px 2px 2px #614966;
+}
+#footer-logo {
+    width: 25%;
+    margin: -15% 0 0 35%;
+    z-index: 1;
+}

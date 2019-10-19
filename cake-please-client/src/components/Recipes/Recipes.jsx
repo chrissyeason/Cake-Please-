@@ -1,32 +1,54 @@
-import React, {Component} from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import NewRecipe from './NewRecipe/NewRecipe';
+import CakePleaseLogo from './Cake_Please-logo.png';
+import ShowRecipe from './ShowRecipe/ShowRecipe';
+import './Recipes.css';
+import Cookies from '../Recipes/cookies-recipe-page.jpg';
+import Lemons from '../Recipes/lemons.jpg';
 
-class Recipes extends Component {
-    constructor(props){
-        super(props);
-        console.log(props, "this is props")
+function Recipes(props) {
+console.log(props, "this is props")
 
-    }
-    render(){
-            const recipes = this.props.recipes.map((recipe)=>{
-               return <div key={recipe._id}>
-                        <img src={recipe.image}/>
-                        <h2>{recipe.title}</h2>
-                        <p>{recipe.description}</p>
-                        <h3>{recipe.ingredients}</h3>
-                        <p>{recipe.instructions}</p>
-                    </div>
-            })
-            return(
-                <div>
-                    <h2>this is recipes component</h2>
+    const recipes = props.recipes.map(function(recipe){
+    return( <div key={recipe.id}>
+                
+                <ShowRecipe 
+                    title={recipe.title}
+                    image={recipe.image}
+                    description={recipe.description}
+                    ingredients={recipe.ingredients}
+                    instructions={recipe.instructions}
+                    deleteRecipe={props.deleteRecipe}
+                    updateRecipe={props.updateRecipe}
+                    id={recipe.id}
+                    />
+            </div>
+        )
+    })
+    
+    return(
+        <div>
+            <div id="recipe-header">
+                <img src={Cookies} id="cookies"/>
+                <Link to="/"><img src={CakePleaseLogo} className="logo"/></Link>
+                
+                <div className="add-recipe">
                     <NewRecipe 
-                        addRecipe={this.props.addRecipe}
-                        username={this.props.username}/>
-                    {recipes}
+                        addRecipe={props.addRecipe}
+                        username={props.username}/>
                 </div>
-            )
-    }
+                <img src={Lemons} id="lemons"/>
+            </div>
+            <div id="recipe-container">
+                <div className="recipes-info">
+                    {recipes}
+                </div>    
+            </div>   
+        </div>
+    )
 }
+
+
 
 export default Recipes;

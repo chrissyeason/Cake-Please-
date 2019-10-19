@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+#recipe-header {
+    display: grid;
+    grid-template-areas: 
+        "cake   nav"
+        "cake   logo"
+        "cake   add-button"
+        "cake   lemons"
+        ".      lemons";
+    grid-template-rows: 10% 20% 10% 5%;
+    grid-template-columns: 55% 45%;
+    z-index: -2;
+    width: 100vw;
+}
+#cookies {
+    grid-area: cake;
+    width: 105%;
+    z-index: -1;
+    justify-self: start;
+    margin-top: -80px;
+}
+.logo {
+    grid-area: logo;
+    justify-self: center;
+    width: 40%;
+    z-index: 2;
+    margin-top: 15%;
+}
+.add-recipe {
+    margin-top: 8%;
+    grid-area: add-button;
+}
+#lemons {
+    grid-area: lemons;
+    justify-self: end;
+    width: 100%;
+    z-index: -2;
+}
+
+li {
+    /* list-style: none; */
+    max-height: 20vh;
+    margin: 8% 2% 10% 2%;
+}
+#recipe-container {
+    width: 100vw;
+    text-align: center;
+    margin-top: -20%;
+}
+#recipe-container > * {
+    margin: 1em 0;
+}
+.recipes-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#recipe-container img {
+    max-height: 25vh;
+    max-width: 25vw;
+    margin: auto;
+}
+h1 {
+    margin-top: 30%;
+    color: #7E8988;
+}
+#show-button {
+    height: 40vh;
+    width: 200px;
+    /* flex-basis: 150px;
+    flex-shrink: 0; */
+    box-shadow: 2px 2px 2px lightgray;
+    overflow: hidden;
+    border-radius: 0px;
+    margin: 20px;
+}
+#show-button h5 {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.15rem;
+    color: #7E8988;
+    padding-top: 10px;
+}
