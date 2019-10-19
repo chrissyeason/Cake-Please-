@@ -1,7 +1,6 @@
 .modal-body {
     overflow: hidden;
 }
-
 .modal-body img {
     max-width: 90%;
     max-height: 60vh;
@@ -10,18 +9,21 @@
 }
 .modal-body h1{
     padding: 1rem 1rem 1rem 3rem;
+    color: #7E8988;
 }
 .modal-body h3{
     padding: 0 1rem 1rem 3rem;
+    color: #7E8988;
 }
 .modal-body h4{
     padding: 1rem 1rem 1rem 3rem;
+    color: #7E8988;
 }
 .delete-button {
-    background-color: #a67ea8;
-    border: solid 2px #a67ea8;
+    background-color: #e8d3f0;
+    border: solid 2px #e8d3f0;
     border-radius: 5px;
     padding: 5px 10px 5px 10px;
     margin-right: 5px;
-    color: white;
+    color: 7E8988;
 }

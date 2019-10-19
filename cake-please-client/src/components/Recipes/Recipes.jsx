@@ -10,7 +10,7 @@ import Lemons from '../Recipes/lemons.jpg';
 function Recipes(props) {
 console.log(props, "this is props")
 
-    const recipes = props.recipes.map(function(recipe, id){
+    const recipes = props.recipes.map(function(recipe){
     return( <li key={recipe.id}>
                 
                 <ShowRecipe 
@@ -30,7 +30,7 @@ console.log(props, "this is props")
         <div>
             <div id="recipe-header">
                 <img src={Cookies} id="cookies"/>
-                <Link to="/"><img src={CakePleaseLogo} id="logo"/></Link>
+                <Link to="/"><img src={CakePleaseLogo} className="logo"/></Link>
                 
                 <div className="add-recipe">
                     <NewRecipe 

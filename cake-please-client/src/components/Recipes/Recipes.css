@@ -20,11 +20,12 @@
     justify-self: start;
     margin-top: -80px;
 }
-#logo {
+.logo {
     grid-area: logo;
     justify-self: center;
-    width: 48%;
+    width: 40%;
     z-index: 2;
+    margin-top: 15%;
 }
 .add-recipe {
     margin-top: 8%;

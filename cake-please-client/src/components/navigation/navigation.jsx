@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import Register from '../AuthGateway/Register';
 import Login from '../AuthGateway/Login'
 import Recipes from '../Recipes/Recipes';
 import Home from '../Home/Home';
+import Tutorials from '../Tutorials/Tutorials';
 import './navigation.css';
+import Gallery from '../Gallery/Gallery';
 
 class Navigation extends Component {
     constructor(props){
@@ -17,35 +19,32 @@ class Navigation extends Component {
     }
     Main = () => (
         <div>
-          <Route 
+        <Route 
             exact path="/"  
             component={Home} />
-          <Route 
+        <Route 
+            path="/tutorials"  
+            component={Tutorials} 
+            exact
+            />
+        <Route 
             path="/recipes"    
             component={Recipes} 
             exact
             />
+            
         </div>
       );
     render(){
         return(
-            <div>
+            <Router>
+                <div>
                 <nav id="nav-bar">
                     <main>
                         <Link to="/tutorials">Tutorials</Link>
                         <Link to="/gallery">Inspiration Gallery</Link>
                         <Link to="/recipes" recipes={this.props.recipes}>Recipes</Link>
-                    </main>    
-                        <Route exact path = "/recipes" render={(props) =>
-                            <Recipes {...props}
-                                recipes={this.props.recipes}
-                                addRecipe={this.props.addRecipe}
-                                username={this.props.username}
-                                deleteRecipe={this.props.deleteRecipe}
-                                updateRecipe={this.props.updateRecipe}
-                            />
-                        }/>
-                        
+                    </main>  
                     
                     <div className="AuthGateway">
                         <Register 
@@ -60,8 +59,32 @@ class Navigation extends Component {
                             />
                     </div>
                 </nav>
-                
-            </div>
+                <Switch>
+                    <Route 
+                        exact path="/"  
+                        component={Home} />
+                    <Route 
+                        path="/tutorials"  
+                        component={Tutorials} 
+                        exact
+                        />
+                    <Route 
+                        exact path = "/recipes" render={(props) =>
+                        <Recipes {...props}
+                            recipes={this.props.recipes}
+                            addRecipe={this.props.addRecipe}
+                            username={this.props.username}
+                            deleteRecipe={this.props.deleteRecipe}
+                            updateRecipe={this.props.updateRecipe}
+                        />
+                    }/>
+                    <Route 
+                        path="/gallery"
+                        component={Gallery}
+                        />
+                </Switch>
+                </div>
+            </Router>
             ) 
     }
 }
