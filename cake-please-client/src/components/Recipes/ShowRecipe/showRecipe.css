@@ -1,11 +1,14 @@
 .modal-body {
     overflow: hidden;
+    padding-right: 30px;
 }
 .modal-body img {
     max-width: 90%;
     max-height: 60vh;
     margin-bottom: 5%;
     margin-left: 8%;
+    padding: 0 2rem 0 0;
+
 }
 .modal-body h1{
     padding: 1rem 1rem 1rem 3rem;
@@ -31,11 +34,11 @@
     color: 7E8988;
 }
 .modal-body li {
-    line-height: .35;
+    line-height: 1.5;
 }
 .modal-body ul {
-    padding-left: 3.7rem;
+    padding: 0 3rem 0 3.7rem;
 }
 .modal-body ol {
-    padding-left: 3.7rem;
+    padding: 0 3rem 0 3.7rem;
 }
