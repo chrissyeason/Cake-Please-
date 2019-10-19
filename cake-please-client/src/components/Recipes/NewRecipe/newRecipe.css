@@ -2,7 +2,9 @@
 .new-recipe Button {
     background-color: white;
 }
-
+#add-button {
+    margin-right: 10px;
+}
 #add-button h4 {
     font-family: 'Sacramento', cursive;
     color: #7E8988;

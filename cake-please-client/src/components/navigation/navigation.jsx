@@ -41,6 +41,7 @@ class Navigation extends Component {
                 <div>
                 <nav id="nav-bar">
                     <main>
+                        <Link to="/">Home</Link>
                         <Link to="/tutorials">Tutorials</Link>
                         <Link to="/gallery">Inspiration Gallery</Link>
                         <Link to="/recipes" recipes={this.props.recipes}>Recipes</Link>
@@ -66,10 +67,10 @@ class Navigation extends Component {
                     <Route 
                         path="/tutorials"  
                         component={Tutorials} 
-                        exact
+                        
                         />
                     <Route 
-                        exact path = "/recipes" render={(props) =>
+                        path = "/recipes" render={(props) =>
                         <Recipes {...props}
                             recipes={this.props.recipes}
                             addRecipe={this.props.addRecipe}
