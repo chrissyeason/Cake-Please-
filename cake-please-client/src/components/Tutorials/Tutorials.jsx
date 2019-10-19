@@ -4,9 +4,9 @@ import './tutorials.css';
 
 function Tutorials(){
     return(
-        <div>
-            <img src={CookiesBaking} id="cookies-baking" />
-            <h1>this is Tutorials</h1>
+        <div className="tutorial">
+            <img src={CookiesBaking} style={{width: '100vw'}} />
+            <h1>Tutorials are Coming</h1>
         </div>
     )
 }

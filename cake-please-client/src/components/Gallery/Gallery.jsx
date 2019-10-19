@@ -1,11 +1,12 @@
 import React from 'react';
 import CherryCake from './cherry-cake.jpg';
+import './gallery.css';
 
 function Gallery(){
     return(
-        <div>
-            <img src={CherryCake} />
-            <h1>this is gallery</h1>
+        <div className="gallery">
+            <img src={CherryCake} style={{width: '100vw'}} />
+            <h1>Gallery is Coming!</h1>
         </div>
     )
 }

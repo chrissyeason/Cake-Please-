@@ -31,7 +31,15 @@ class UpdateRecipe extends Component {
         e.preventDefault();
         console.log(this.props)
         console.log("handle submit update")
-        this.props.updateRecipe(this.props.id, this.state);
+        const ingredientList = this.state.ingredients.split("\n");
+        const instructionsList = this.state.instructions.split("\n");
+
+        this.props.updateRecipe(this.props.id,{ 
+            title: this.state.title,
+            image: this.state.image,
+            description: this.state.description,
+            ingredients: ingredientList,
+            instructions: instructionsList,});
         this.setState({
             modal: false
         })

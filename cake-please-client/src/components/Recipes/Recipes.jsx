@@ -11,7 +11,7 @@ function Recipes(props) {
 console.log(props, "this is props")
 
     const recipes = props.recipes.map(function(recipe){
-    return( <li key={recipe.id}>
+    return( <div key={recipe.id}>
                 
                 <ShowRecipe 
                     title={recipe.title}
@@ -23,9 +23,10 @@ console.log(props, "this is props")
                     updateRecipe={props.updateRecipe}
                     id={recipe.id}
                     />
-            </li>
+            </div>
         )
     })
+    
     return(
         <div>
             <div id="recipe-header">
@@ -40,9 +41,9 @@ console.log(props, "this is props")
                 <img src={Lemons} id="lemons"/>
             </div>
             <div id="recipe-container">
-                <ul className="recipes-info">
+                <div className="recipes-info">
                     {recipes}
-                </ul>    
+                </div>    
             </div>   
         </div>
     )

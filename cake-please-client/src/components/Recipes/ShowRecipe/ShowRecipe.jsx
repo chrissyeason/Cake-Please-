@@ -19,8 +19,24 @@ class ShowRecipe extends Component{
           modal: !prevState.modal
         }));
     }
-
+    
     render(){
+        console.log(this.props.ingredients, "this is ingredients console")
+        
+        let ingredients = ''
+        if (this.props.ingredients !== null) {
+           ingredients= this.props.ingredients.map(function(ingredient, i){
+                const key = `ingredient-${i}`;
+                return( <li key={key}>{ingredient}</li>)
+            })
+        }
+        let instructions = ''
+        if (this.props.instructions !== null) {
+            instructions = this.props.instructions.map(function(instruction, i){
+                const key = `instruction-${i}`;
+                return( <li key={key}>{instruction}</li>)
+            })
+        }
       return(       
             <div className="show-recipe">
                 <Button id="show-button" color="white" onClick={this.toggle}><img src={this.props.image}/><h5>{this.props.title}</h5></Button>
@@ -29,12 +45,16 @@ class ShowRecipe extends Component{
                 <ModalBody>
                     <img src={this.props.image} className="modal-image"/>
                     <h1>{this.props.title}</h1>
-                    <h3 className="description">{this.props.description}</h3>
+                    <h4 className="description">{this.props.description}</h4>
+                    <h5>ingredients</h5>
                     <ul>
-                        <li>{this.props.ingredients}</li> 
+                        {ingredients} 
                     </ul>
+                    <br></br>
+                    <h5>instructions</h5>
+
                     <ol>
-                        <li>{this.props.instructions}</li>
+                        {instructions}
                     </ol>
                     
                 

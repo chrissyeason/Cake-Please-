@@ -31,12 +31,16 @@ class NewRecipe extends Component {
         e.preventDefault();
         console.log(this.props)
         console.log("handle submit")
+        const ingredientList = this.state.ingredients.split("\n");
+        const instructionsList = this.state.instructions.split("\n");
+        console.log(ingredientList);
+        console.log(instructionsList);
         this.props.addRecipe({
             title: this.state.title,
             image: this.state.image,
             description: this.state.description,
-            ingredients: this.state.ingredients,
-            instructions: this.state.instructions,
+            ingredients: ingredientList,
+            instructions: instructionsList,
         });
         this.setState({
             modal: false
@@ -54,7 +58,7 @@ class NewRecipe extends Component {
                         <input type="text" name="title" placeholder="Title" onChange={this.handleChange}/>
                         <input type="text" name="image" placeholder="Image Address" onChange={this.handleChange}/>
                         <input type="text" name="description" placeholder="Description" onChange={this.handleChange}/>
-                        <textarea type="text" name="ingredients" placeholder="Ingredients" onChange={this.handleChange}/>
+                        <textarea id="ingredient-list" type="text" name="ingredients" placeholder="Ingredients (please add one ingredient per line)" onChange={this.handleChange}/>
                         <textarea type="text" name="instructions" placeholder="Instructions" onChange={this.handleChange}></textarea>
                         <input type="submit" value="submit" onClick={this.toggle}/>
                     </form>

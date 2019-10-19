@@ -11,14 +11,17 @@
     padding: 1rem 1rem 1rem 3rem;
     color: #7E8988;
 }
-.modal-body h3{
-    padding: 0 1rem 1rem 3rem;
+.modal-body h5{
+    padding: 1rem 1rem 0 3rem;
     color: #7E8988;
+    text-transform: uppercase;
+
 }
 .modal-body h4{
     padding: 1rem 1rem 1rem 3rem;
     color: #7E8988;
 }
+
 .delete-button {
     background-color: #e8d3f0;
     border: solid 2px #e8d3f0;
@@ -26,4 +29,13 @@
     padding: 5px 10px 5px 10px;
     margin-right: 5px;
     color: 7E8988;
+}
+.modal-body li {
+    line-height: .35;
+}
+.modal-body ul {
+    padding-left: 3.7rem;
+}
+.modal-body ol {
+    padding-left: 3.7rem;
 }
